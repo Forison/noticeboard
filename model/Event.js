@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
-mongoose.Schema({
+const eventModel = mongoose.Schema({
   
   title: {
     type: String,
@@ -21,10 +21,18 @@ mongoose.Schema({
     required: true,
   },
   eventPOster: {
-    user_id: Number,
+    userId: Number,
     required: true
+  },
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
   }
 },
 {timestamp: true}
 
 );
+
+const Event = mongoose.Model("Event", eventModel);
+
+export { Event };
