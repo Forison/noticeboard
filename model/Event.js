@@ -30,7 +30,6 @@ const eventModel = mongoose.Schema({
   }
 },
 {timestamp: true}
-
 );
 
 const Event = mongoose.Model("Event", eventModel);
